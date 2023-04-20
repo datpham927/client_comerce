@@ -15,7 +15,7 @@ function HomePage() {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await getAllType();
-      setTypeProducts(res);
+      setTypeProducts(res || []);
     };
     fetchApi();
   }, []);
