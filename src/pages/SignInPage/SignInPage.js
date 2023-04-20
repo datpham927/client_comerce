@@ -29,10 +29,14 @@ function SignInPage() {
     const token = user.access_token;
     localStorage.setItem("access_token", JSON.stringify(token));
     //lấy ra id từ access token bằng jwt-decode
-    const { id } = jwt_decode(token);
-    //gọi api lấy chi tiết user
-    const detailUser = await getDetailUser(id, token);
-    dispatch(setUpdateUser({ ...detailUser.data, token }));
+    if (token) {
+      const { id } = jwt_decode(token);
+      //gọi api lấy chi tiết user
+      if (id) {
+        const detailUser = await getDetailUser(id, token);
+        dispatch(setUpdateUser({ ...detailUser.data, token }));
+      }
+    }
     if (location?.state) {
       navigate(`/product-detail`, { state: location?.state });
     } else {
