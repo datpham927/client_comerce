@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { OrderCreate } from "?.?./?.?./service";
+import { OrderCreate } from "../../service";
 
 function PaymentPage() {
     const navigate = useNavigate()
@@ -10,8 +10,8 @@ function PaymentPage() {
     const [payment, setPayment] = useState(true);
     const [paypalScript, setPaypalScript] = useState(false);
     const location = useLocation();
-    const orderProducts = useSelector((state) => state?.orderReduce);
-    const user = useSelector((state) => state?.userReduce);
+    const orderProducts = useSelector((state) => state.orderReduce);
+    const user = useSelector((state) => state.userReduce);
     const handleOder = () => {
         const fetchApi = async () => {
             await OrderCreate(
@@ -58,10 +58,10 @@ function PaymentPage() {
 
     const handlePaypalScript = () => {
         const script = document?.createElement("script")
-        script?.type = "text/javascript"
-        script?.src = `https://www?.paypal?.com/sdk/js?client-id=AT1ETPmUnrl76MQemHoPuyj4fcfvErWDIFwwGKOIiFDr3naPhue7czGMapqZoGYqrTBZBcZU_AaaMZiM`
-        script?.async = true
-        script?.onload = () => {
+        script.type = "text/javascript"
+        script.src = `https://www?.paypal?.com/sdk/js?client-id=AT1ETPmUnrl76MQemHoPuyj4fcfvErWDIFwwGKOIiFDr3naPhue7czGMapqZoGYqrTBZBcZU_AaaMZiM`
+        script.async = true
+        script.onload = () => {
             setPaypalScript(true)
         }
         document?.body?.appendChild(script)

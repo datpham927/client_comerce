@@ -10,7 +10,7 @@ function HeaderRight() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const user = useSelector((state) => state.userReduce);
-  const order = useSelector((state) => state?.orderReduce);
+  const order = useSelector((state) => state.orderReduce);
   const handleLogOut = async () => {
     const response = await logOut();
     if (response.status === "OK") {

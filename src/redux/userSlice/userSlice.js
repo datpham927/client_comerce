@@ -24,7 +24,7 @@ export const userSlice = createSlice({
       state.avatar = avatar;
       state.phone = phone;
       state.address = address;
-      state?.access_token = token;
+      state.access_token = token;
       state.isAdmin = isAdmin;
     },
     resetUser: (state) => {
@@ -34,7 +34,7 @@ export const userSlice = createSlice({
       state.phone = "";
       state.avatar = "";
       state.address = "";
-      state?.access_token = "";
+      state.access_token = "";
       state.isAdmin = false;
     },
   },
