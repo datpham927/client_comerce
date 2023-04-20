@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { PayPalButton } from "react-paypal-button-v2";
 
 import { OrderCreate } from "../../service";
 
@@ -141,28 +140,12 @@ function PaymentPage() {
                         {totalPriceMemo} VND
                     </span>
                 </div>
-
-                {
-                    !payment ?
-                        <PayPalButton
-                            amount="0.01"
-                            currency="USD"
-                            onSuccess={(details, data) => {
-                                alert("Transaction completed by " + details.payer.name.given_name);
-                            }}
-                            onError={(err) => {
-                                console.log(err);
-                            }}
-                        />
-                        :
-
-                        <div
-                            onClick={handleOder}
-                            className="w-[60%] mt-3 py-1 rounded-sm flex justify-center mx-auto bg-red text-white font-normal"
-                        >
-                            Đặc hàng
-                        </div>
-                }
+                <div
+                    onClick={handleOder}
+                    className="w-[60%] mt-3 py-1 rounded-sm flex justify-center mx-auto bg-red text-white font-normal"
+                >
+                    Đặc hàng
+                </div>
             </div>
         </div>
     );
