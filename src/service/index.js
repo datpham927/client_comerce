@@ -2,7 +2,7 @@ import axios from "axios";
 import httpRequest from "../utils/httpRequest";
 
 export const axiosJWT = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://backend-comerce.onrender.com/api",
 });
 
 const postRegister = async (form) => {
