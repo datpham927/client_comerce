@@ -37,7 +37,7 @@ function ProfilePage() {
     const response = await updateUser(
       user.id,
       { ...textForm, avatar },
-      user.access_token
+      user?.access_token
     );
     if (response?.status === "OK") {
       dispatch(setUpdateUser({ ...response.data }));

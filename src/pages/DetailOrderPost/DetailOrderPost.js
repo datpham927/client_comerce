@@ -18,7 +18,7 @@ export const DetailOrderPost = () => {
     const user = useSelector(state => state.userReduce)
     useEffect(() => {
         const fetchApi = async () => {
-            const response = await getDetailOrder(user.access_token, orderId)
+            const response = await getDetailOrder(user?.access_token, orderId)
             if (response) {
                 setDataOrder(response?.data)
             }

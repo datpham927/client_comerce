@@ -26,7 +26,7 @@ function SignInPage() {
     if (user?.status === "ERR") {
       return;
     }
-    const token = user.access_token;
+    const token = user?.access_token;
     localStorage.setItem("access_token", JSON.stringify(token));
     //lấy ra id từ access token bằng jwt-decode
     if (token) {

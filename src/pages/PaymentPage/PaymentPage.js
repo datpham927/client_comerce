@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { OrderCreate } from "../../service";
+import { OrderCreate } from "?.?./?.?./service";
 
 function PaymentPage() {
     const navigate = useNavigate()
@@ -10,42 +10,42 @@ function PaymentPage() {
     const [payment, setPayment] = useState(true);
     const [paypalScript, setPaypalScript] = useState(false);
     const location = useLocation();
-    const orderProducts = useSelector((state) => state.orderReduce);
-    const user = useSelector((state) => state.userReduce);
+    const orderProducts = useSelector((state) => state?.orderReduce);
+    const user = useSelector((state) => state?.userReduce);
     const handleOder = () => {
         const fetchApi = async () => {
             await OrderCreate(
                 {
-                    orderItems: orderProducts.orderItemsSelector,
+                    orderItems: orderProducts?.orderItemsSelector,
                     shippingAddress: [
                         {
-                            fullName: user.name,
-                            address: user.address,
+                            fullName: user?.name,
+                            address: user?.address,
                             city: "abc",
-                            phone: user.phone,
+                            phone: user?.phone,
                         },
                     ],
                     paymentMethod: paymentMethod,
                     itemsPrice: "111111",
                     shippingPrice: "20000",
                     taxPrice: "22222",
-                    totalPrice: location.state.totalPrice,
+                    totalPrice: location?.state?.totalPrice,
                 },
-                user.access_token
+                user?.access_token
             );
         };
         navigate("/order-success", {
             state: {
                 paymentMethod,
-                orderItems: orderProducts.orderItems
+                orderItems: orderProducts?.orderItems
             }
         })
         fetchApi();
     };
 
     const priceMemo = useMemo(() => {
-        const result = orderProducts.orderItemsSelector.reduce((total, e) => {
-            return total + e.price * e.amount;
+        const result = orderProducts?.orderItemsSelector?.reduce((total, e) => {
+            return total + e?.price * e?.amount;
         }, 0);
         return result;
     }, [orderProducts]);
@@ -57,19 +57,19 @@ function PaymentPage() {
     }, [priceMemo]);
 
     const handlePaypalScript = () => {
-        const script = document.createElement("script")
-        script.type = "text/javascript"
-        script.src = `https://www.paypal.com/sdk/js?client-id=AT1ETPmUnrl76MQemHoPuyj4fcfvErWDIFwwGKOIiFDr3naPhue7czGMapqZoGYqrTBZBcZU_AaaMZiM`
-        script.async = true
-        script.onload = () => {
+        const script = document?.createElement("script")
+        script?.type = "text/javascript"
+        script?.src = `https://www?.paypal?.com/sdk/js?client-id=AT1ETPmUnrl76MQemHoPuyj4fcfvErWDIFwwGKOIiFDr3naPhue7czGMapqZoGYqrTBZBcZU_AaaMZiM`
+        script?.async = true
+        script?.onload = () => {
             setPaypalScript(true)
         }
-        document.body.appendChild(script)
+        document?.body?.appendChild(script)
     }
     useEffect(() => {
         handlePaypalScript()
     }, [])
-    console.log("paypalScript", paypalScript);
+    console?.log("paypalScript", paypalScript);
 
 
     return (
@@ -118,7 +118,7 @@ function PaymentPage() {
                     <div className="flex justify-between items-center">
                         <span className="flex-shrink-0 ">Địa chỉ</span>
                         <span className="text-primary text-lg truncate ml-2">
-                            {user.address}
+                            {user?.address}
                         </span>
                     </div>
                     <div className="flex justify-between items-center">

@@ -11,7 +11,7 @@ export const MyOrder = () => {
     const [loadData, setLoadData] = useState(false)
     useEffect(() => {
         const fetchApi = async () => {
-            const response = await getAllOrder(user.access_token)
+            const response = await getAllOrder(user?.access_token)
             setDataOrder(response || {})
         }
         fetchApi()
@@ -21,7 +21,7 @@ export const MyOrder = () => {
     const handleDeleteOrder = (e, item) => {
         e.preventDefault()
         const fetchApi = async () => {
-            const response = await deleteOrder(user.access_token, item)
+            const response = await deleteOrder(user?.access_token, item)
             if (response.status === "OK") {
                 setLoadData((e) => !e)
             }

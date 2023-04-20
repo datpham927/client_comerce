@@ -38,7 +38,7 @@ function App() {
       const currentTime = new Date();
       if (decoded.exp < currentTime.getTime() / 1000) {
         const data = await refreshToken();
-        config.headers["token"] = `Bearer ${data.access_token}`;
+        config.headers["token"] = `Bearer ${data?.access_token}`;
       }
       return config;
     },
