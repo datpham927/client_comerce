@@ -13,7 +13,7 @@ function OrderPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const orderProducts = useSelector((state) => state.orderReduce);
-  const idProductSelector = orderProducts.orderItemsSelector.map(
+  const idProductSelector = orderProducts.orderItemsSelector?.map(
     (e) => e.product
   );
 

@@ -31,7 +31,7 @@ function HomePage() {
   return (
     <div className="px-5">
       <div className="flex">
-        {typeProducts?.map((i) => (
+        {typeProducts && typeProducts?.map((i) => (
           <TypeProduct key={i} name={i} />
         ))}
       </div>

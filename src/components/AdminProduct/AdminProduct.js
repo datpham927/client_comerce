@@ -287,7 +287,7 @@ function AdminProduct() {
     const file = e.target.files;
     setImageEdit(URL.createObjectURL(file[0]));
   };
-  const products = data.map((e) => {
+  const products = data?.map((e) => {
     return { ...e, key: e._id };
   });
   const [form] = Form.useForm();

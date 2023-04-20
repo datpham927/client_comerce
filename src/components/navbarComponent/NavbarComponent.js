@@ -15,7 +15,7 @@ function NavbarComponent() {
     <div className="p-4 bg-white">
       <h1 className="my-4">Sản phẩm</h1>
       <ul>
-        {typeProducts.map((e) => (
+        {typeProducts?.map((e) => (
           <TypeProduct name={e} />
         ))}
       </ul>

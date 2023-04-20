@@ -12,7 +12,7 @@ function SliderComponent({ arrImg }) {
   };
   return (
     <Slider {...settings}>
-      {arrImg.map((i) => (
+      {arrImg?.map((i) => (
         <img className="w-full" src={i} alt="" />
       ))}
     </Slider>

@@ -50,7 +50,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {routes.map((route) => {
+        {routes?.map((route) => {
           const Page = route.page;
 
           const check = !route.isPrivate || user?.isAdmin;

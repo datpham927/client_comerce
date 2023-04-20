@@ -90,9 +90,9 @@ function AdminUser() {
     const file = e.target.files;
     setAvatar(URL.createObjectURL(file[0]));
   };
-  const handleSummit = () => {};
+  const handleSummit = () => { };
 
-  const users = data.map((e) => {
+  const users = data?.map((e) => {
     return { ...e, key: e._id };
   });
   return (
