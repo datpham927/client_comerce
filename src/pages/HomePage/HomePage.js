@@ -31,9 +31,9 @@ function HomePage() {
   return (
     <div className="px-5">
       <div className="flex">
-        {typeProducts && typeProducts?.map((i) => (
+        {/* {typeProducts && typeProducts?.map((i) => (
           <TypeProduct key={i} name={i} />
-        ))}
+        ))} */}
       </div>
       <div>
         <SliderComponent arrImg={arrImg} />
